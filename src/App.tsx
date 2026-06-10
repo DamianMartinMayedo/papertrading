@@ -3,7 +3,7 @@ import './App.css'
 function App() {
   return (
     <main className="landing">
-      <div className="caret" />
+      <div className="logo">PT</div>
       <h1 className="title">PaperTrading</h1>
       <p className="description">
         Plataforma personal de paper trading con datos de mercado reales.
