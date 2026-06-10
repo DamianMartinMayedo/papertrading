@@ -1,16 +1,14 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Dashboard } from './components/Dashboard'
 import './App.css'
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
-    <main className="landing">
-      <div className="logo">PT</div>
-      <h1 className="title">PaperTrading</h1>
-      <p className="description">
-        Plataforma personal de paper trading con datos de mercado reales.
-        Aprende trading sin riesgo, valida estrategias durante meses
-        y compara resultados en múltiples mercados en paralelo.
-      </p>
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <Dashboard />
+    </QueryClientProvider>
   )
 }
 

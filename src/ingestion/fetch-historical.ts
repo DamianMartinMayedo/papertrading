@@ -1,7 +1,6 @@
 import 'dotenv/config'
 import { db } from '../db'
-import { instruments, priceBars } from '../db/schema'
-import { eq } from 'drizzle-orm'
+import { priceBars } from '../db/schema'
 import { createCoinGeckoProvider } from '../providers'
 
 const HISTORICAL_DAYS = 365

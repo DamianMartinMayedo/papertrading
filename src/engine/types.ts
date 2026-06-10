@@ -1,5 +1,3 @@
-import type { Portfolio, Order, Execution, Position } from '../db/schema'
-
 export type OrderSide = 'buy' | 'sell'
 export type OrderType = 'market'
 export type OrderStatus = 'pending' | 'executed' | 'cancelled' | 'failed'
@@ -12,9 +10,23 @@ export interface MarketOrderRequest {
   marketPrice: number
 }
 
+export interface ExecutionData {
+  orderId: string
+  portfolioId: string
+  instrumentId: string
+  side: OrderSide
+  quantity: number
+  price: number
+  executedPrice: number
+  commission: number
+  slippage: number
+  total: number
+  executedAt: Date
+}
+
 export interface ExecutionResult {
-  execution: Omit<Execution, 'id' | 'createdAt'>
-  updatedPosition: Omit<Position, 'id' | 'createdAt' | 'updatedAt'> | null
+  execution: ExecutionData
+  updatedPosition: PositionUpdate | null
   updatedCash: number
   realizedPnl: number
 }

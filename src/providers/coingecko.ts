@@ -90,7 +90,6 @@ export class CoinGeckoProvider implements MarketDataProvider {
   }
 
   async getLatestOHLCV(symbol: string, days: number = 1): Promise<OHLCV[]> {
-    const coinId = this.getCoinId(symbol)
     const toDate = new Date()
     const fromDate = new Date(toDate.getTime() - days * 24 * 60 * 60 * 1000)
 
